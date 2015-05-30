@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hostname:</strong>
+  <%= @ted_reader.hostname %>
+</p>
+<p>
+  <strong>Current voltage:</strong>
+  <%= "#{@current_voltage}" %>
+</p>
+
+<%= link_to 'Edit', edit_ted_reader_path(@ted_reader) %> |
+<%= link_to 'Back', ted_readers_path %>
