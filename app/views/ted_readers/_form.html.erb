@@ -1,0 +1,21 @@
+<%= form_for(@ted_reader) do |f| %>
+  <% if @ted_reader.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ted_reader.errors.count, "error") %> prohibited this ted_reader from being saved:</h2>
+
+      <ul>
+      <% @ted_reader.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ted Readers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ted_readers.each do |ted_reader| %>
+      <tr>
+        <td><%= ted_reader.url %></td>
+        <td><%= link_to 'Show', ted_reader %></td>
+        <td><%= link_to 'Edit', edit_ted_reader_path(ted_reader) %></td>
+        <td><%= link_to 'Destroy', ted_reader, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ted reader', new_ted_reader_path %>
