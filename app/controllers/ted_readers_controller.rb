@@ -11,7 +11,12 @@ class TedReadersController < ApplicationController
   # GET /ted_readers/1.json
   def show
     enum = Enumerator.new do |yielder|
-      HTTPClient.get(:hostname) do |chunk|
+      url = "http://#{@ted_reader.hostname}/api/LiveData.xml"
+      user = ""
+      password = ""
+      client = HTTPClient.new
+      client.set_auth(url, user, password)
+      client.get(url) do |chunk|
         yielder << chunk
       end
     end
@@ -19,7 +24,7 @@ class TedReadersController < ApplicationController
     document = Oga.parse_xml(enum)
     
     document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
-      puts mtu1.at_xpath('VoltageNow').text
+      @current_voltage = mtu1.at_xpath('VoltageNow').text
     end
   end
 
