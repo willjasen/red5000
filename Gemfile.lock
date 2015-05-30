@@ -36,7 +36,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    ansi (1.5.0)
     arel (6.0.0)
+    ast (2.0.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -55,6 +57,7 @@ GEM
     execjs (2.5.2)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    httpclient (2.6.0.1)
     i18n (0.7.0)
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
@@ -74,6 +77,9 @@ GEM
     multi_json (1.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    oga (1.0.1)
+      ast
+      ruby-ll (~> 2.1)
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -103,6 +109,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    ruby-ll (2.1.1)
+      ansi
+      ast
     sass (3.4.14)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -143,8 +152,10 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  httpclient
   jbuilder (~> 2.0)
   jquery-rails
+  oga
   rails (= 4.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
