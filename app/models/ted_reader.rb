@@ -1,5 +1,5 @@
 class TedReader < ActiveRecord::Base
-  attr_reader :url
+  attr_accessor :url
 
   def initialize(url)
     @url = url
