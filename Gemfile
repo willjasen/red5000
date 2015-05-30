@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 gem 'httpclient'
 gem 'oga'
-#gem 'whenever', :require => true
-gem 'recurrent'
+gem 'whenever', :require => true
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
