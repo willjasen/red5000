@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.second do
+every 1.minute do
   runner "TedReader.track"
 end
