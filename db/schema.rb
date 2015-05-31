@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530190652) do
+ActiveRecord::Schema.define(version: 20150531184740) do
+
+  create_table "readings", force: :cascade do |t|
+    t.float    "voltage"
+    t.integer  "power"
+    t.integer  "kva"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ted_readers", force: :cascade do |t|
     t.string   "hostname"
