@@ -1,4 +1,5 @@
 class TedReader < ActiveRecord::Base
+  has_many :readings
   validates_presence_of :hostname
 
   def self.track
