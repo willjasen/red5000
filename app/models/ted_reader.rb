@@ -4,7 +4,7 @@ class TedReader < ActiveRecord::Base
 
   def self.track
     enum = Enumerator.new do |yielder|
-      url = "http://#{hostname}/api/LiveData.xml"
+      url = "http://ted.willjasen.com/api/LiveData.xml"
       user = ""
       password = ""
       client = HTTPClient.new
@@ -17,9 +17,7 @@ class TedReader < ActiveRecord::Base
     document = Oga.parse_xml(enum)
     document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
       @current_voltage = mtu1.at_xpath('VoltageNow').text
-      
       @current_voltage = @current_voltage.to_f / 10
-      @current_voltage = @current_voltage.to_s + " volts"
     end
     
     document.xpath('LiveData/Power/MTU1').each do |mtu1|
@@ -29,6 +27,9 @@ class TedReader < ActiveRecord::Base
       @current_power = @current_power + " watts"
       @current_kva = @current_kva + " kilovolt-amperes"
     end
+    
+    reading = Reading.create(voltage: @current_voltage, power: @current_power, kva: @current_kva)
+    reading.save
   end
 
 end
