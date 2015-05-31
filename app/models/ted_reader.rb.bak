@@ -1,0 +1,25 @@
+require 'oga'
+
+class TedReader < ActiveRecord::Base
+  validates_presence_of :url
+  attr_reader :url
+
+  def initialize(url: "http://ted.willjasen.com")
+    @url = url
+  end
+
+  def read
+    enum = Enumerator.new do |yielder|
+      HTTPClient.get(@url) do |chunk|
+        yielder << chunk
+      end
+    end
+
+    document = Oga.parse_xml(enum)
+
+    document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
+      puts person.at_xpath('VoltageNow').text
+    end
+ 
+  end
+end

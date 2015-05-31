@@ -6,7 +6,11 @@
 </p>
 <p>
   <strong>Current voltage:</strong>
-  <%= "#{@current_voltage}" %>
+  <%= "#{@current_voltage}" %><br />
+  <strong>Current power:</strong>
+  <%= "#{@current_power}" %><br />
+  <strong>Current kilovolt-amperes:</strong>
+  <%= "#{@current_kva}" %><br />
 </p>
 
 <%= link_to 'Edit', edit_ted_reader_path(@ted_reader) %> |

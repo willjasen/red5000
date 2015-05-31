@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  voltage: 1.5
+  power: 1
+  kva: 1
+
+two:
+  voltage: 1.5
+  power: 1
+  kva: 1
