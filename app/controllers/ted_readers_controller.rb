@@ -25,8 +25,17 @@ class TedReadersController < ApplicationController
     
     document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
       @current_voltage = mtu1.at_xpath('VoltageNow').text
+      
       @current_voltage = @current_voltage.to_f / 10
       @current_voltage = @current_voltage.to_s + " volts"
+    end
+    
+    document.xpath('LiveData/Power/MTU1').each do |mtu1|
+      @current_power = mtu1.at_xpath('PowerNow').text
+      @current_kva = mtu1.at_xpath('KVA').text
+
+      @current_power = @current_power + " watts"
+      @current_kva = @current_kva + " kilovolt-amperes"
     end
   end
 
