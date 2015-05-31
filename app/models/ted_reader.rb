@@ -4,7 +4,8 @@ class TedReader < ActiveRecord::Base
 
   def self.track
     enum = Enumerator.new do |yielder|
-      url = "http://ted.willjasen.com/api/LiveData.xml"
+      hostname = Rails.application.secrets.hostname
+      url = "http://#{hostname}/api/LiveData.xml"
       user = ""
       password = ""
       client = HTTPClient.new
