@@ -19,5 +19,5 @@
 # Ignore secrets.yml
 /config/secrets.yml
 
-# Ignore application.yml
+# Ignore application configuration
 /config/application.yml
