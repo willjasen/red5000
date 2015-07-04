@@ -1,3 +1,3 @@
-every 5.seconds, :save => false do
+every 5.seconds, :save => true do
   TedReader.track
 end
