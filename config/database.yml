@@ -23,7 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: red5000-production
+  database: red5000_production
   pool: 5
   hostname: <%= ENV["DATABASE_HOSTNAME"] %>
   username: <%= ENV["DATABASE_USERNAME"] %>
