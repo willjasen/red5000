@@ -5,7 +5,7 @@ class TedReader < ActiveRecord::Base
   def self.track
     enum = Enumerator.new do |yielder|
       hostname = Rails.application.secrets.hostname
-      url = "http://#{hostname}/api/LiveData.xml"
+      url = "http://192.168.128.22/api/LiveData.xml"
       user = ""
       password = ""
       client = HTTPClient.new
@@ -30,6 +30,7 @@ class TedReader < ActiveRecord::Base
     end
     
     reading = Reading.create(voltage: @current_voltage, power: @current_power, kva: @current_kva)
+    reading.reader_id = 1
     reading.save
   end
 
