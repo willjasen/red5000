@@ -26,6 +26,6 @@ production:
   encoding: unicode
   database: red5000_production
   pool: 5
-  hostname: <%= ENV["DATABASE_HOSTNAME"] %>
+  host: <%= ENV["DATABASE_HOSTNAME"] %>
   username: <%= ENV["DATABASE_USERNAME"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
