@@ -30,7 +30,7 @@ class TedReader < ActiveRecord::Base
     end
     
     reading = Reading.create(voltage: @current_voltage, power: @current_power, kva: @current_kva)
-    reading.reader_id = 1
+    reading.ted_reader_id = 1
     reading.save
   end
 
