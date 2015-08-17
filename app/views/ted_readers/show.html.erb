@@ -13,5 +13,12 @@
   <%= "#{@current_kva}" %><br />
 </p>
 
+<p>
+  <strong>Last Reading ID:</strong>
+  <%= Reading.last.id %><br />
+  <strong>Updated at:</strong>
+  <%= Reading.last.updated_at %><br />
+</p>
+
 <%= link_to 'Edit', edit_ted_reader_path(@ted_reader) %> |
 <%= link_to 'Back', ted_readers_path %>
