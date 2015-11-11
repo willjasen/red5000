@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'httpclient'
 gem 'oga'
-gem 'recurrent'
+gem 'rufus-scheduler'
 gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
