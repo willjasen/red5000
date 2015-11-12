@@ -2,9 +2,8 @@ class TedReader < ActiveRecord::Base
   has_many :readings
   validates_presence_of :hostname
 
-  def self.track
+  def track
     enum = Enumerator.new do |yielder|
-      hostname = Rails.application.secrets.hostname
       url = "http://#{hostname}/api/LiveData.xml"
       user = ""
       password = ""
