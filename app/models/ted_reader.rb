@@ -3,17 +3,22 @@ class TedReader < ActiveRecord::Base
   validates_presence_of :hostname
 
   def track
-    enum = Enumerator.new do |yielder|
-      url = "http://#{hostname}/api/LiveData.xml"
-      user = ""
-      password = ""
-      client = HTTPClient.new
-      client.set_auth(url, user, password)
-      client.get(url) do |chunk|
-        yielder << chunk
-      end
-    end
-
+    #enum = Enumerator.new do |yielder|
+    #  url = "http://#{hostname}/api/LiveData.xml"
+    #  user = ""
+    #  password = ""
+    #  client = HTTPClient.new
+    #  client.set_auth(url, user, password)
+    #  client.get(url) do |chunk|
+    #    yielder << chunk
+    #  end
+    #end
+  
+    url = "http://#{hostname}/api/LiveData.xml"
+    client = HTTPClient.new
+    content = client.get_content(url)
+    document = Oga.parse_xml(content)
+    
     document = Oga.parse_xml(enum)
     document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
       @current_voltage = mtu1.at_xpath('VoltageNow').text
