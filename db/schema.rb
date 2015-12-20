@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20150808205405) do
     t.integer  "kva"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "reader_id"
+    t.integer  "ted_reader_id"
   end
 
-  add_index "readings", ["reader_id"], name: "index_readings_on_reader_id"
+  add_index "readings", ["ted_reader_id"], name: "index_readings_on_reader_id"
 
   create_table "ted_readers", force: :cascade do |t|
     t.string   "hostname"
