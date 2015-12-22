@@ -23,8 +23,6 @@ class TedReader < ActiveRecord::Base
     end
     
     document = Oga.parse_xml(content)
-    
-    document = Oga.parse_xml(enum)
     document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
       @current_voltage = mtu1.at_xpath('VoltageNow').text
       @current_voltage = @current_voltage.to_f / 10
