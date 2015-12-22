@@ -16,6 +16,7 @@ class TedReader < ActiveRecord::Base
   
     url = "http://#{hostname}/api/LiveData.xml"
     client = HTTPClient.new
+    content = ""
     
     client.get_content(url) do |chunk|
       content << chunk
