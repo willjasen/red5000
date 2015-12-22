@@ -16,7 +16,11 @@ class TedReader < ActiveRecord::Base
   
     url = "http://#{hostname}/api/LiveData.xml"
     client = HTTPClient.new
-    content = client.get_content(url)
+    
+    client.get_content(url) do |chunk|
+      content << chunk
+    end
+    
     document = Oga.parse_xml(content)
     
     document = Oga.parse_xml(enum)
