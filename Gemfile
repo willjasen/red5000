@@ -4,6 +4,7 @@ gem 'httpclient'
 gem 'oga'
 gem 'rufus-scheduler'
 gem 'pg'
+gem 'unicorn'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
