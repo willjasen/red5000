@@ -6,6 +6,7 @@ gem 'rufus-scheduler'
 gem 'pg'
 gem 'unicorn'
 gem 'chartkick'
+gem 'groupdate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
