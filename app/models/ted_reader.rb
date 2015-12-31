@@ -36,8 +36,7 @@ class TedReader < ActiveRecord::Base
       @current_kva = @current_kva + " kilovolt-amperes"
     end
     
-    reading = Reading.create(voltage: @current_voltage, power: @current_power, kva: @current_kva)
-    reading.ted_reader_id = self.id
+    reading = Reading.create(voltage: @current_voltage, power: @current_power, kva: @current_kva, ted_reader_id: self.id)
     reading.save
   end
 
