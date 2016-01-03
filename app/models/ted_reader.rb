@@ -23,6 +23,15 @@ class TedReader < ActiveRecord::Base
     end
     
     document = Oga.parse_xml(content)
+    document.xpath('LiveData/GatewayTime/MTU1').each do |mtu1|
+      @current_hour = mtu1.at_xpath('Hour').text
+      @current_minute = mtu1.at_xpath('Minute').text
+      @current_second = mtu1.at_xpath('Second').text
+      @current_month = mtu1.at_xpath('Month').text
+      @current_day = mtu1.at_xpath('Day').text
+      @current_year = mtu1.at_xpath('Year').text
+    end
+
     document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
       @current_voltage = mtu1.at_xpath('VoltageNow').text
       @current_voltage = @current_voltage.to_f / 10
