@@ -20,7 +20,7 @@
   <%= Reading.last.updated_at %><br />
 </p>
 
-<%= javascript_include_tag "//www.google.com/jsapi"  %>
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 <%= javascript_include_tag "application", "chartkick" %>
 <%= area_chart Reading.group_by_day(:created_at).sum(:power), {library: {hAxis: {title: "Date"}, vAxis: {title: "Power"}}}  %>
 
