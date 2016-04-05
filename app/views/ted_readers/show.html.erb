@@ -6,11 +6,11 @@
 </p>
 <p>
   <strong>Last voltage:</strong>
-  <%= Reading.last.voltage %><br />
+  <%= Reading.count > 0 ? Reading.last.voltage : 0 %><br />
   <strong>Last power:</strong>
-  <%= Reading.last.power %><br />
+  <%= Reading.count > 0 ? Reading.last.power : 0 %><br />
   <strong>Last kilovolt-amperes:</strong>
-  <%= Reading.last.kva %><br />
+  <%= Reading.count > 0 ? Reading.last.kva : 0 %><br />
 </p>
 
 <p>
