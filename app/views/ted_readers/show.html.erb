@@ -22,6 +22,7 @@
 
 <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 <%= javascript_include_tag "application", "chartkick" %>
+
 <%= area_chart Reading.summarized_info, {library: {hAxis: {title: "Date"}, vAxis: {title: "Power"}}}  %>
 
 <%= link_to 'Edit', edit_ted_reader_path(@ted_reader) %> |
