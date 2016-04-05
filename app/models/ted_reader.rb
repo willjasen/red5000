@@ -2,18 +2,7 @@ class TedReader < ActiveRecord::Base
   has_many :readings
   validates_presence_of :hostname
 
-  def track
-    #enum = Enumerator.new do |yielder|
-    #  url = "http://#{hostname}/api/LiveData.xml"
-    #  user = ""
-    #  password = ""
-    #  client = HTTPClient.new
-    #  client.set_auth(url, user, password)
-    #  client.get(url) do |chunk|
-    #    yielder << chunk
-    #  end
-    #end
-  
+  def track 
     url = "http://#{hostname}/api/LiveData.xml"
     client = HTTPClient.new
     content = ""
