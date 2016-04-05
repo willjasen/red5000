@@ -5,12 +5,12 @@
   <%= @ted_reader.hostname %>
 </p>
 <p>
-  <strong>Current voltage:</strong>
-  <%= "#{@current_voltage}" %><br />
-  <strong>Current power:</strong>
-  <%= "#{@current_power}" %><br />
-  <strong>Current kilovolt-amperes:</strong>
-  <%= "#{@current_kva}" %><br />
+  <strong>Last voltage:</strong>
+  <%= Reading.last.voltage %><br />
+  <strong>Last power:</strong>
+  <%= Reading.last.power %><br />
+  <strong>Last kilovolt-amperes:</strong>
+  <%= Reading.last.kva %><br />
 </p>
 
 <p>
