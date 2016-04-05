@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160103204442) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "readings", force: :cascade do |t|
     t.float    "voltage"
     t.integer  "power"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160103204442) do
     t.datetime "ted_reader_time"
   end
 
-  add_index "readings", ["ted_reader_id"], name: "index_readings_on_ted_reader_id"
+  add_index "readings", ["ted_reader_id"], name: "index_readings_on_ted_reader_id", using: :btree
 
   create_table "ted_readers", force: :cascade do |t|
     t.string   "hostname"
