@@ -21,6 +21,7 @@ class TedReader < ActiveRecord::Base
       @year = mtu1.at_xpath('Year').text
       
       date = DateTime.new(:year, :month, :day, :hour, :minute, :second)
+      @device_timestamp = date.to_i
     end
 
     document.xpath('LiveData/Voltage/MTU1').each do |mtu1|
@@ -36,7 +37,7 @@ class TedReader < ActiveRecord::Base
       @current_kva = @current_kva + " kilovolt-amperes"
     end
     
-    reading = Reading.create(voltage: @current_voltage, power: @current_power, kva: @current_kva, ted_reader_id: self.id)
+    reading = Reading.create(voltage: @current_voltage, power: @current_power, kva: @current_kva, ted_reader_id: self.id, ted_reader_time: @device_timestamp)
     reading.save
   end
 
